@@ -8,72 +8,76 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { background-color: #05070a; color: #cbd5e1; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .gradient-text { background: linear-gradient(90deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .isuzu-border { border-left: 4px solid #3b82f6; }
     </style>
 </head>
-<body class="p-4 md:p-12">
-    <div class="max-w-5xl mx-auto space-y-8">
+<body class="p-6 md:p-16">
+    <div class="max-w-6xl mx-auto space-y-10">
         
-        <div class="glass p-12 rounded-[2.5rem] text-center relative overflow-hidden">
+        <div class="glass p-12 rounded-[3rem] text-center relative shadow-2xl">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-white to-blue-600"></div>
-            <i data-lucide="factory" class="mx-auto w-16 h-16 text-blue-500 mb-6 opacity-80"></i>
-            <h1 class="text-6xl font-black gradient-text italic mb-2 tracking-tighter">AVRUPA CİVATA</h1>
-            <p class="text-xl text-slate-400 font-light tracking-[0.2em] uppercase italic">Anadolu Isuzu OEM Stratejik Dosyası</p>
+            <h1 class="text-7xl font-black italic mb-2 tracking-tighter text-white">AVRUPA CİVATA</h1>
+            <p class="text-xl text-blue-400 font-bold tracking-[0.3em] uppercase italic">OEM STRATEJİK TEDARİK DİREKTİFİ</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="glass p-8 rounded-3xl text-center">
-                <div class="text-blue-500 text-[10px] font-bold uppercase tracking-widest mb-2">Türkiye Geneli Sıralama</div>
-                <div class="text-4xl font-black text-white italic">79.</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass p-10 rounded-3xl text-center isuzu-border">
+                <div class="text-slate-500 text-xs font-bold uppercase mb-2">CNC İŞLEME HATTI</div>
+                <div class="text-4xl font-black text-white italic">5.2 METRE</div>
             </div>
-            <div class="glass p-8 rounded-3xl text-center border-b-2 border-green-500/30">
-                <div class="text-green-500 text-[10px] font-bold uppercase tracking-widest mb-2">Yıllık Büyüme Endeksi</div>
-                <div class="text-4xl font-black text-white italic">%44</div>
+            <div class="glass p-10 rounded-3xl text-center isuzu-border">
+                <div class="text-slate-500 text-xs font-bold uppercase mb-2">HİDROLİK PRES GÜCÜ</div>
+                <div class="text-4xl font-black text-white italic">150 TON</div>
             </div>
-            <div class="glass p-8 rounded-3xl text-center border-b-2 border-amber-500/30">
-                <div class="text-amber-500 text-[10px] font-bold uppercase tracking-widest mb-2">Ortalama Tahsilat Hızı</div>
-                <div class="text-4xl font-black text-white italic">40 GÜN</div>
+            <div class="glass p-10 rounded-3xl text-center isuzu-border">
+                <div class="text-slate-500 text-xs font-bold uppercase mb-2">ÜRETİM HASSASİYETİ</div>
+                <div class="text-4xl font-black text-white italic">0.001 MM</div>
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="glass p-8 rounded-[2rem] space-y-6">
-                <div class="flex items-center gap-4">
-                    <i data-lucide="cpu" class="text-blue-400 w-8 h-8"></i>
-                    <h3 class="text-2xl font-bold text-white uppercase italic">Yüksek Kapasite Üretim</h3>
+            <div class="glass p-10 rounded-[2.5rem] space-y-6">
+                <h3 class="text-2xl font-bold text-white flex items-center gap-3 italic">
+                    <i data-lucide="settings"></i> MAKİNE PARKI
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-slate-400 font-medium italic">5.2m CNC Dik İşlem</span>
+                        <span class="text-blue-400 font-black">AKTİF</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-slate-400 font-medium italic">150 Ton Hidrolik Form Pres</span>
+                        <span class="text-blue-400 font-black">YÜKSEK HIZ</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-slate-400 font-medium italic">Otomatik Kalıplama İstasyonu</span>
+                        <span class="text-blue-400 font-black">VAR</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-slate-400 font-medium italic">KOSGEB Onaylı Kalite Hattı</span>
+                        <span class="text-blue-400 font-black">TAM ONAY</span>
+                    </div>
                 </div>
-                <ul class="space-y-4 text-slate-300">
-                    <li class="flex justify-between border-b border-white/5 pb-2">
-                        <span>5.2m CNC İşleme Hattı</span>
-                        <span class="text-blue-400 font-mono">Aktif</span>
-                    </li>
-                    <li class="flex justify-between border-b border-white/5 pb-2">
-                        <span>150 Ton Hidrolik Pres Grubu</span>
-                        <span class="text-blue-400 font-mono">0.01 Hassasiyet</span>
-                    </li>
-                    <li class="flex justify-between border-b border-white/5 pb-2">
-                        <span>KOSGEB Onaylı Ar-Ge Merkezi</span>
-                        <span class="text-blue-400 font-mono">Lisanslı</span>
-                    </li>
-                </ul>
             </div>
 
-            <div class="glass p-8 rounded-[2rem] bg-gradient-to-br from-blue-900/10 to-transparent">
-                <h3 class="text-2xl font-bold text-white uppercase italic mb-6">OEM İş Birliği Vizyonu</h3>
-                <p class="text-slate-400 leading-relaxed mb-6 italic text-sm">
-                    Anadolu Isuzu'nun 2026 üretim vizyonuna tam uyumlu, JIT (Just-In-Time) tedarik zinciri altyapımızla hata payını sıfıra indiriyoruz. Dijital izlenebilirlik sistemimizle her bir parça üretim anında kayıt altına alınmaktadır.
+            <div class="glass p-10 rounded-[2.5rem] bg-blue-900/5">
+                <h3 class="text-2xl font-bold text-white flex items-center gap-3 italic mb-6">
+                    <i data-lucide="shield-check"></i> ISUZU ÖZEL NOTU
+                </h3>
+                <p class="text-slate-400 leading-relaxed italic mb-8">
+                    Anadolu Isuzu’nun 2026 OEM standartlarına uygun olarak tasarlanan üretim hattımız, JIT (Just-In-Time) sevkiyat kapasitesine sahiptir. Dijital izlenebilirlik altyapımız ile tüm sevkiyatlar gerçek zamanlı raporlanmaktadır.
                 </p>
-                <div class="flex gap-2">
-                    <span class="bg-white/10 px-3 py-1 rounded-full text-[10px] font-bold text-white">ISO 9001</span>
-                    <span class="bg-white/10 px-3 py-1 rounded-full text-[10px] font-bold text-white">IATF 16949</span>
-                    <span class="bg-white/10 px-3 py-1 rounded-full text-[10px] font-bold text-white">OEM READY</span>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 glass rounded-full text-xs font-black text-white italic">IATF 16949</span>
+                    <span class="px-4 py-2 glass rounded-full text-xs font-black text-white italic">ISO 9001</span>
+                    <span class="px-4 py-2 glass rounded-full text-xs font-black text-white italic">OEM READY</span>
                 </div>
             </div>
         </div>
 
-        <p class="text-center text-slate-600 text-[10px] font-mono uppercase tracking-[0.4em] pb-12 italic">
-            Bu belge dijital olarak imzalanmış bir Avrupa Cıvata stratejik dökümanıdır.
+        <p class="text-center text-slate-700 text-[10px] font-mono uppercase tracking-[0.5em] italic pb-20">
+            AVRUPA CIVATA STRATEJİK DİJİTAL DÖKÜMAN - 2026 VISION
         </p>
     </div>
     <script>lucide.createIcons();</script>
