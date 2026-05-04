@@ -52,6 +52,11 @@
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 80px; /* Menünün başlıkları kapatmasını engeller */
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -105,6 +110,54 @@ body::before {
 
 .divider { height: 1px; background: var(--border); margin: 48px 0; }
 .divider-sm { height: 1px; background: var(--border2); margin: 24px 0; }
+
+/* ── NAV & FLOATING BUTTONS (YENİ EKLENDİ) ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 11, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.nav-in {
+  max-width: 1100px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+}
+.nav-logo {
+  font-family: var(--font-display); font-size: 15px; font-weight: 800;
+  color: var(--text-bright); letter-spacing: -.01em; text-decoration: none;
+}
+.nav-logo span { color: var(--gold2); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color .2s;
+}
+.nav-links a:hover { color: var(--gold2); }
+.nav-cta {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--bg); background: var(--gold2);
+  padding: 10px 20px; border-radius: 2px; text-decoration: none; transition: opacity .2s;
+}
+.nav-cta:hover { opacity: .9; }
+
+.scta {
+  position: fixed; bottom: 28px; right: 28px; z-index: 99;
+  display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
+}
+.sbtn {
+  display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 4px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; text-decoration: none; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  transition: transform .2s, opacity .2s;
+}
+.sbtn:hover { transform: translateY(-2px); opacity: .9; }
+.sbtn.wa { background: #25d366; color: #fff; }
+.sbtn.teklif { background: var(--gold2); color: var(--bg); }
 
 /* ── SECTIONS ── */
 section { padding: 80px 0; }
@@ -749,6 +802,7 @@ h2.section-title::after {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+  .nav-links { display: none; }
   .wrap { padding: 0 20px; }
   section { padding: 56px 0; }
   .hero { padding: 80px 0 60px; }
@@ -764,12 +818,40 @@ h2.section-title::after {
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
   .vision-block { padding: 36px 24px; }
   .btn-grid { grid-template-columns: 1fr; }
+  .scta { bottom: 16px; right: 16px; }
 }
 </style>
 </head>
 <body>
 
-<div class="hero">
+<!-- MENÜ (NAVIGASYON) -->
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#hero" class="nav-logo">AVRUPA <span>CİVATA</span></a>
+    <ul class="nav-links">
+      <li><a href="#kimlik">Kimlik</a></li>
+      <li><a href="#vizyon">Vizyon</a></li>
+      <li><a href="#makineler">Makineler</a></li>
+      <li><a href="#performans">Performans</a></li>
+      <li><a href="#kalite">Kalite</a></li>
+      <li><a href="#referanslar">Referanslar</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <a href="mailto:info@avrupacivata.com?subject=Teknik Teklif Talebi" class="nav-cta">Teklif İste</a>
+  </div>
+</nav>
+
+<!-- YAPIŞKAN BUTONLAR (WHATSAPP & MAİL) -->
+<div class="scta">
+  <a href="https://wa.me/905453225214" target="_blank" class="sbtn wa">
+    <i data-lucide="message-circle" style="width: 14px; height: 14px;"></i> WhatsApp
+  </a>
+  <a href="mailto:info@avrupacivata.com?subject=Teklif Talebi" class="sbtn teklif">
+    <i data-lucide="mail" style="width: 14px; height: 14px;"></i> Teklif Al
+  </a>
+</div>
+
+<div class="hero" id="hero">
   <div class="glow-orb"></div>
   <div class="hero-grid-line h" style="top:33%"></div>
   <div class="hero-grid-line h" style="top:66%"></div>
@@ -808,7 +890,7 @@ h2.section-title::after {
   </div>
 </div>
 
-<section>
+<section id="dokumanlar">
   <div class="wrap">
     <h2 class="section-title">Resmi Dökümanlar & Satınalma Paneli</h2>
     <div class="btn-grid">
@@ -837,7 +919,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="kimlik">
   <div class="wrap">
     <h2 class="section-title">Kurumsal Kimlik</h2>
     <div class="identity-grid">
@@ -872,7 +954,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="vizyon">
   <div class="wrap">
     <h2 class="section-title">Misyon &amp; Vizyon</h2>
 
@@ -942,7 +1024,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="makineler">
   <div class="wrap">
     <h2 class="section-title">Makine Parkuru &amp; Teknik Envanter</h2>
 
@@ -1066,7 +1148,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="performans">
   <div class="wrap">
     <h2 class="section-title">İşletme Performansı · KOSGEB 2024 Resmi Onaylı Veriler</h2>
 
@@ -1195,7 +1277,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="yetkinlikler">
   <div class="wrap">
     <h2 class="section-title">Üretim Yetkinlikleri</h2>
     <div class="cap-grid">
@@ -1233,7 +1315,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="kalite">
   <div class="wrap">
     <h2 class="section-title">Kalite Güvencesi &amp; Standartlar</h2>
     <div class="quality-split">
@@ -1266,7 +1348,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="sektorler">
   <div class="wrap">
     <h2 class="section-title">Hizmet Verdiğimiz Sektörler</h2>
     <div class="sector-grid" style="grid-template-columns:repeat(3,1fr);">
@@ -1334,7 +1416,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="referanslar">
   <div class="wrap">
     <h2 class="section-title">İş Ortakları &amp; Referanslar</h2>
     <p style="font-size:13px; color:var(--text-dim); margin-bottom:32px; max-width:600px;">
@@ -1361,7 +1443,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<section>
+<section id="hedefler">
   <div class="wrap">
     <h2 class="section-title">Stratejik Tier-1 Tedarik Hedeflerimiz</h2>
     <p style="font-size:13px; color:var(--text-dim); margin-bottom:32px; max-width:640px;">
@@ -1402,7 +1484,7 @@ h2.section-title::after {
   </div>
 </section>
 
-<div class="footer">
+<div class="footer" id="iletisim">
   <div class="wrap">
     <div class="footer-inner">
       <div>
